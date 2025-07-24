@@ -45,6 +45,7 @@ app.patch("/api/users/:id", checkAuthentication, userControllers.updateUser);
 
 // Post Routes
 app.post("/api/posts/:id", postControllers.createPost);
+app.get("/api/posts", postControllers.getAllPosts);
 // app.get("/api/posts/:id", postControllers.listPosts);
 ///////////////////////////////
 // Fallback Routes
