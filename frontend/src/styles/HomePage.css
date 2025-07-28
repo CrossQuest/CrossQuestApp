@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.minecraft-bg {
+  min-height: 100vh;
+  background: #5e4b3c url('https://i.imgur.com/8pQe6vF.png'); /* Example pixel art bg */
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.minecraft-title {
+  font-family: 'Press Start 2P', 'VT323', monospace, sans-serif;
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 4px 4px #222, 8px 8px #3e2c1c;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+}
+
+.minecraft-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.minecraft-btn {
+  font-family: 'Press Start 2P', 'VT323', monospace, sans-serif;
+  background: #8b7b5e;
+  color: #fff;
+  border: 4px solid #3e2c1c;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 2px 2px #222;
+  transition: background 0.2s;
+}
+
+.minecraft-btn:hover {
+  background: #a89c7b;
+} 
