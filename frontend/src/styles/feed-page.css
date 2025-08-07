@@ -1,0 +1,36 @@
+.feed-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.feed-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.create-post-section {
+  position: sticky;
+  top: 20px;
+}
+
+.community-feed-section h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .feed-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .create-post-section {
+    position: static;
+  }
+} 

@@ -1,28 +1,53 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useContext } from "react";
 import CurrentUserContext from "../contexts/current-user-context";
 
 export default function SiteHeadingAndNav() {
   const { currentUser } = useContext(CurrentUserContext);
 
-  return <header>
-    <a id='logo' href='/'>React/Express Auth</a>
-    <nav>
-      <ul>
-        <li><NavLink to='/'>Home</NavLink></li>
+  return (
+    <header>
+      <Link id="logo" to="/">
+        CrossQuest
+      </Link>
+      <nav>
+        <ul>
+          <li>
+            <NavLink to="/">Welcome</NavLink>
+          </li>
+          <li>
+            <NavLink to="/play">Play</NavLink>
+          </li>
+          <li>
+            <NavLink to="/leaderboard">Leaderboard</NavLink>
+          </li>
 
-        {
-          currentUser
-            ? <>
-              <li><NavLink to='/users' end={true}>Users</NavLink></li>
-              <li><NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink></li>
+          {currentUser ? (
+            <>
+              <li>
+                <NavLink to="/feed">Feed</NavLink>
+              </li>
+              <li>
+                <NavLink to="/competitions">Competitions</NavLink>
+              </li>
+              <li>
+                <NavLink to={`/users/${currentUser.id}`}>
+                  {currentUser.username}
+                </NavLink>
+              </li>
             </>
-            : <>
-              <li><NavLink to='/login'>Login</NavLink></li>
-              <li><NavLink to='/sign-up'>Sign Up</NavLink></li>
+          ) : (
+            <>
+              <li>
+                <NavLink to="/login">Login</NavLink>
+              </li>
+              <li>
+                <NavLink to="/sign-up">Sign Up</NavLink>
+              </li>
             </>
-        }
-      </ul>
-    </nav>
-  </header>;
+          )}
+        </ul>
+      </nav>
+    </header>
+  );
 }

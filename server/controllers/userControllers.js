@@ -16,7 +16,7 @@ Returns a single user (if found)
 exports.showUser = async (req, res) => {
   const { id } = req.params;
 
-  const user = await User.find(id);
+  const user = await User.findWithWins(id);
   if (!user) {
     return res.status(404).send({ message: "User not found." });
   }

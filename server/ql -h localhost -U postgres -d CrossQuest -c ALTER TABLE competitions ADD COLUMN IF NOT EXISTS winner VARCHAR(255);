@@ -1,0 +1,20 @@
+                                         Table "public.competitions"
+     Column     |           Type           | Collation | Nullable |                 Default                  
+----------------+--------------------------+-----------+----------+------------------------------------------
+ id             | integer                  |           | not null | nextval('competitions_id_seq'::regclass)
+ creator_id     | integer                  |           | not null | 
+ opponent_id    | integer                  |           | not null | 
+ creator_score  | integer                  |           |          | 0
+ opponent_score | integer                  |           |          | 0
+ status         | text                     |           |          | 'pending'::text
+ start_time     | timestamp with time zone |           |          | 
+ end_time       | timestamp with time zone |           |          | 
+ created_at     | timestamp with time zone |           |          | CURRENT_TIMESTAMP
+Indexes:
+    "competitions_pkey" PRIMARY KEY, btree (id)
+Check constraints:
+    "competitions_status_check" CHECK (status = ANY (ARRAY['pending'::text, 'active'::text, 'completed'::text, 'declined'::text]))
+Foreign-key constraints:
+    "competitions_creator_id_foreign" FOREIGN KEY (creator_id) REFERENCES users(id) ON DELETE CASCADE
+    "competitions_opponent_id_foreign" FOREIGN KEY (opponent_id) REFERENCES users(id) ON DELETE CASCADE
+

@@ -1,0 +1,233 @@
+.user-scores-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.user-scores-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.user-stats-section,
+.user-scores-section {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-stats-section h4,
+.user-scores-section h4 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.user-scores-container h3 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+.user-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.stat-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.user-scores-table {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-scores-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-scores-table th {
+  background: #007bff;
+  color: white;
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.user-scores-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.user-scores-table tr:hover {
+  background: #f8f9fa;
+}
+
+.game-number {
+  font-weight: bold;
+  color: #6c757d;
+  width: 80px;
+}
+
+.score {
+  font-weight: bold;
+  color: #28a745;
+  font-size: 1.1rem;
+}
+
+.date {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.no-scores {
+  text-align: center;
+  padding: 40px;
+  color: #6c757d;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.no-scores p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.user-scores-loading,
+.user-scores-error {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.1rem;
+}
+
+.user-scores-loading {
+  color: #6c757d;
+}
+
+.user-scores-error {
+  color: #dc3545;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .user-scores-container {
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  .user-scores-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .user-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  
+  .stat-card {
+    padding: 15px;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+  }
+  
+  .user-scores-table th,
+  .user-scores-table td {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+/* New side-by-side layout styles */
+.user-profile-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.user-scores-section {
+  width: 100%;
+}
+
+.user-actions-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.user-actions-section form {
+  margin-bottom: 0;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+  width: auto;
+  align-self: center;
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);
+}
+
+/* Responsive design for side-by-side layout */
+@media (max-width: 1024px) {
+  .user-profile-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .user-actions-section {
+    align-items: center;
+  }
+} 

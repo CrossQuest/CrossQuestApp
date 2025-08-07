@@ -7,10 +7,13 @@ class User {
 
   // Create a User instance with the password hidden
   // Instances of User can be sent to clients without exposing the password
-  constructor({ id, username, password_hash }) {
+  constructor({ id, username, password_hash, wins, name, email }) {
     this.id = id;
     this.username = username;
     this.#passwordHash = password_hash;
+    this.wins = wins || 0;
+    this.name = name || '';
+    this.email = email || '';
   }
 
   // Controllers can use this instance method to validate passwords prior to sending responses
@@ -21,16 +24,26 @@ class User {
   // Hashes the given password and then creates a new user
   // in the users table. Returns the newly created user, using
   // the constructor to hide the passwordHash. 
-  static async create(username, password) {
+  static async create(username, password, name, email) {
     // hash the plain-text password using bcrypt before storing it in the database
     const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
 
-    const query = `INSERT INTO users (username, password_hash)
-      VALUES (?, ?) RETURNING *`;
-    const result = await knex.raw(query, [username, passwordHash]);
-
-    const rawUserData = result.rows[0];
-    return new User(rawUserData);
+    try {
+      // Try to insert with name and email columns
+      const query = `INSERT INTO users (username, password_hash, name, email)
+        VALUES (?, ?, ?, ?) RETURNING *`;
+      const result = await knex.raw(query, [username, passwordHash, name, email]);
+      const rawUserData = result.rows[0];
+      return new User(rawUserData);
+    } catch (err) {
+      // If name/email columns don't exist, fall back to original query
+      console.log('Name/email columns not found, using fallback query');
+      const query = `INSERT INTO users (username, password_hash)
+        VALUES (?, ?) RETURNING *`;
+      const result = await knex.raw(query, [username, passwordHash]);
+      const rawUserData = result.rows[0];
+      return new User(rawUserData);
+    }
   }
 
   // Fetches ALL users from the users table, uses the constructor
@@ -76,6 +89,40 @@ class User {
 
   static async deleteAll() {
     return knex('users').del()
+  }
+
+  // Increment wins for a user
+  static async incrementWins(userId) {
+    console.log('Incrementing wins for user ID:', userId);
+    try {
+      const query = `
+        UPDATE users
+        SET wins = wins + 1
+        WHERE id = ?
+        RETURNING *
+      `;
+      const result = await knex.raw(query, [userId]);
+      const rawUserData = result.rows[0];
+      console.log('Win increment result:', rawUserData);
+      return rawUserData ? new User(rawUserData) : null;
+    } catch (err) {
+      console.log('Error incrementing wins:', err);
+      return null;
+    }
+  }
+
+  // Get user with wins count
+  static async findWithWins(id) {
+    try {
+      const query = `SELECT id, username, wins FROM users WHERE id = ?`;
+      const result = await knex.raw(query, [id]);
+      const rawUserData = result.rows[0];
+      return rawUserData ? new User(rawUserData) : null;
+    } catch (err) {
+      // If wins column doesn't exist, fall back to regular find
+      console.log('Wins column not found, falling back to regular user find');
+      return await User.find(id);
+    }
   }
 }
 

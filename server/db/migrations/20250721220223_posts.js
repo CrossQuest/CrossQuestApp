@@ -7,8 +7,6 @@ exports.up = (knex) => {
     table.increments();
     table.integer("user_id").notNullable().references("id").inTable("users");
     table.integer("score");
-    table.integer("time");
-    table.string("message");
   });
 };
 

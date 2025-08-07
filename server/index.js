@@ -16,6 +16,8 @@ const logErrors = require("./middleware/logErrors");
 const authControllers = require("./controllers/authControllers");
 const userControllers = require("./controllers/userControllers");
 const postControllers = require("./controllers/postControllers");
+const feedControllers = require("./controllers/feedControllers");
+const competitionControllers = require("./controllers/competitionControllers");
 const app = express();
 
 // middleware
@@ -44,8 +46,27 @@ app.get("/api/users/:id", checkAuthentication, userControllers.showUser);
 app.patch("/api/users/:id", checkAuthentication, userControllers.updateUser);
 
 // Post Routes
-app.post("/api/posts/:id", postControllers.createPost);
+app.post("/api/posts", checkAuthentication, postControllers.createPost);
+app.get("/api/posts", postControllers.getAllPosts);
+app.get("/api/users/:id/posts", postControllers.getUserScores);
+// app.get("/api/scores", postControllers.getScoresSorted);
 // app.get("/api/posts/:id", postControllers.listPosts);
+
+// Feed Routes
+app.post("/api/feed", checkAuthentication, feedControllers.createFeedEntry);
+app.get("/api/feed", feedControllers.getAllFeed);
+app.get("/api/users/:id/feed", feedControllers.getUserFeed);
+
+// Competition Routes
+app.post("/api/competitions", checkAuthentication, competitionControllers.createCompetition);
+app.get("/api/competitions", checkAuthentication, competitionControllers.getUserCompetitions);
+app.get("/api/competitions/pending", checkAuthentication, competitionControllers.getPendingCompetitions);
+app.get("/api/competitions/active", checkAuthentication, competitionControllers.getActiveCompetitions);
+app.put("/api/competitions/:competitionId/accept", checkAuthentication, competitionControllers.acceptCompetition);
+app.put("/api/competitions/:competitionId/decline", checkAuthentication, competitionControllers.declineCompetition);
+app.get("/api/competitions/:competitionId/attempts", checkAuthentication, competitionControllers.getUserAttempts);
+app.post("/api/competitions/:competitionId/score", checkAuthentication, competitionControllers.submitScore);
+app.put("/api/competitions/:competitionId/complete", checkAuthentication, competitionControllers.completeCompetition);
 ///////////////////////////////
 // Fallback Routes
 ///////////////////////////////

@@ -9,6 +9,8 @@ export default function SignUpPage() {
   const navigate = useNavigate();
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const [errorText, setErrorText] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -20,9 +22,9 @@ export default function SignUpPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setErrorText('');
-    if (!username || !password) return setErrorText('Missing username or password');
+    if (!name || !email || !username || !password) return setErrorText('Missing name, email, username, or password');
 
-    const [user, error] = await registerUser({ username, password });
+    const [user, error] = await registerUser({ name, email, username, password });
     if (error) return setErrorText(error.message);
 
     setCurrentUser(user);
@@ -31,6 +33,8 @@ export default function SignUpPage() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    if (name === 'name') setName(value);
+    if (name === 'email') setEmail(value);
     if (name === 'username') setUsername(value);
     if (name === 'password') setPassword(value);
   };
@@ -39,6 +43,26 @@ export default function SignUpPage() {
     <h1>Sign Up</h1>
     <form onSubmit={handleSubmit} onChange={handleChange} aria-labelledby="create-heading">
       <h2 id="create-heading">Create New User</h2>
+      <label htmlFor="name">Name</label>
+      <input
+        autoComplete="off"
+        type="text"
+        id="name"
+        name="name"
+        onChange={handleChange}
+        value={name}
+      />
+
+      <label htmlFor="email">Email</label>
+      <input
+        autoComplete="off"
+        type="email"
+        id="email"
+        name="email"
+        onChange={handleChange}
+        value={email}
+      />
+
       <label htmlFor="username">Username</label>
       <input
         autoComplete="off"

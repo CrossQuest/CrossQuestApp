@@ -1,0 +1,44 @@
+.home-container {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem 2rem 2rem 2rem;
+  box-sizing: border-box;
+}
+
+.game-wrapper {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 3px solid #667eea;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  pointer-events: none;
+  border-radius: 12px;
+}
+
+.game-content {
+  position: relative;
+  z-index: 1;
+}
+
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  margin: 0;
+  padding: 0;
+}
