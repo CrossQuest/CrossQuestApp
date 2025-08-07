@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useContext } from "react";
 import CurrentUserContext from "../contexts/current-user-context";
 
@@ -7,21 +7,28 @@ export default function SiteHeadingAndNav() {
 
   return (
     <header>
-      <a id="logo" href="/">
+      <Link id="logo" to="/">
         CrossQuest
-      </a>
+      </Link>
       <nav>
         <ul>
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/">Welcome</NavLink>
+          </li>
+          <li>
+            <NavLink to="/play">Play</NavLink>
+          </li>
+          <li>
+            <NavLink to="/leaderboard">Leaderboard</NavLink>
           </li>
 
           {currentUser ? (
             <>
               <li>
-                <NavLink to="/users" end={true}>
-                  Users
-                </NavLink>
+                <NavLink to="/feed">Feed</NavLink>
+              </li>
+              <li>
+                <NavLink to="/competitions">Competitions</NavLink>
               </li>
               <li>
                 <NavLink to={`/users/${currentUser.id}`}>

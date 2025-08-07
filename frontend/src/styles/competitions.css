@@ -1,0 +1,259 @@
+.competitions-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.competitions-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 2.5rem;
+}
+
+.competitions-section {
+  margin-bottom: 40px;
+}
+
+.competitions-section h3 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.competitions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.competition-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.competition-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.competition-card.pending {
+  border-left: 4px solid #ffc107;
+}
+
+.competition-card.active {
+  border-left: 4px solid #28a745;
+}
+
+.competition-card.completed {
+  border-left: 4px solid #6c757d;
+}
+
+.competition-card.declined {
+  border-left: 4px solid #dc3545;
+}
+
+.competition-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.competition-type,
+.competition-status {
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.competition-type {
+  background: #ffc107;
+  color: #333;
+}
+
+.competition-status.pending {
+  background: #ffc107;
+  color: #333;
+}
+
+.competition-status.active {
+  background: #28a745;
+  color: white;
+}
+
+.competition-status.completed {
+  background: #6c757d;
+  color: white;
+}
+
+.competition-status.declined {
+  background: #dc3545;
+  color: white;
+}
+
+.competition-date {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.competition-content p {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.competition-players {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.player strong {
+  color: #333;
+}
+
+.player .score {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.vs {
+  font-weight: bold;
+  color: #6c757d;
+  font-size: 1.2rem;
+}
+
+.competition-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.accept-btn,
+.decline-btn,
+.complete-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.accept-btn {
+  background: #28a745;
+  color: white;
+}
+
+.accept-btn:hover {
+  background: #218838;
+  transform: translateY(-1px);
+}
+
+.decline-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.decline-btn:hover {
+  background: #c82333;
+  transform: translateY(-1px);
+}
+
+.complete-btn {
+  background: #007bff;
+  color: white;
+}
+
+.complete-btn:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+.competition-result {
+  margin-top: 15px;
+  padding: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.no-competitions {
+  text-align: center;
+  padding: 40px;
+  color: #6c757d;
+  font-size: 1.1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.competitions-loading,
+.competitions-error {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.1rem;
+}
+
+.competitions-loading {
+  color: #6c757d;
+}
+
+.competitions-error {
+  color: #dc3545;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .competitions-container {
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  .competitions-container h2 {
+    font-size: 2rem;
+  }
+  
+  .competition-card {
+    padding: 15px;
+  }
+  
+  .competition-players {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .competition-actions {
+    flex-direction: column;
+  }
+  
+  .accept-btn,
+  .decline-btn,
+  .complete-btn {
+    width: 100%;
+  }
+} 

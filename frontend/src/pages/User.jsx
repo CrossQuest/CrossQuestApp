@@ -4,6 +4,7 @@ import CurrentUserContext from "../contexts/current-user-context";
 import { getUser } from "../adapters/user-adapter";
 import { logUserOut } from "../adapters/auth-adapter";
 import UpdateUsernameForm from "../components/UpdateUsernameForm";
+import UserScores from "../components/UserScores";
 
 export default function UserPage() {
   const navigate = useNavigate();
@@ -38,15 +39,20 @@ export default function UserPage() {
 
   return <>
     <h1>{profileUsername}</h1>
-    <p>If the user had any data, here it would be</p>
-    <p>Fake Bio or something</p>
-    {
-      isCurrentUserProfile ? (
-        <>
+    
+    <div className="user-profile-layout">
+      {/* Left side - User Scores */}
+      <div className="user-scores-section">
+        <UserScores userId={Number(id)} username={profileUsername} wins={userProfile.wins || 0} />
+      </div>
+      
+      {/* Right side - Update form and logout (only for current user) */}
+      {isCurrentUserProfile && (
+        <div className="user-actions-section">
           <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser} />
-          <button onClick={handleLogout}>Log Out</button>
-        </>
-      ) : ''
-    }
+          <button onClick={handleLogout} className="logout-btn">Log Out</button>
+        </div>
+      )}
+    </div>
   </>;
 }
