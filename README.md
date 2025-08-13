@@ -10,9 +10,12 @@
 
 ## Made With:
 
-FrontEnd: <img width="1200" height="1200" alt="image" src="https://github.com/user-attachments/assets/02fce08a-1f8d-4bb4-95ea-481ac0f6f3ec" />
-, <img width="640" height="640" alt="image" src="https://github.com/user-attachments/assets/1a25ac65-898b-4533-801c-e8f4253b5f1b" />
-, style.css, Phaser, React
+FrontEnd: <img width="40" height="40" alt="JavaScript" src="https://github.com/user-attachments/assets/02fce08a-1f8d-4bb4-95ea-481ac0f6f3ec" />
+, <img width="40" height="40" alt="HTML" src="https://github.com/user-attachments/assets/1a25ac65-898b-4533-801c-e8f4253b5f1b" />
+, <img width="40" height="40" alt="style.css" src="https://github.com/user-attachments/assets/bc70e65d-d82e-4db2-ab39-96f4a510e4d6" />
+, <img width="40" height="40" alt="Phaser" src="https://github.com/user-attachments/assets/69233ab5-145c-481c-aab5-9db69b457387" />
+, <img width="40" height="40" alt="React" src="https://github.com/user-attachments/assets/cd2dd7dc-03c2-4ea1-969d-defe237d0c87" />
+
 BackEnd: PostgresSQL, Express, Node.js
 
 ## Made by:
