@@ -17,8 +17,8 @@ FrontEnd: <img width="40" height="40" alt="JavaScript" src="https://github.com/u
  <img width="40" height="40" alt="React" src="https://github.com/user-attachments/assets/cd2dd7dc-03c2-4ea1-969d-defe237d0c87" />
 
 BackEnd: <img width="40" height="40" alt="PostgreSQL" src="https://github.com/user-attachments/assets/30547e4f-c48e-4391-83b2-1f48c092062a" />
-<img width="60" height="80" alt="Express.js" src="https://github.com/user-attachments/assets/67948384-ae25-4422-9bc4-27c728e1ee3e" />
-<img width="40" height="40" alt="Node.js" src="https://github.com/user-attachments/assets/230984c9-b807-405b-b428-58a6fe77ded2" />
+ <img width="40" height="80" alt="Express.js" src="https://github.com/user-attachments/assets/67948384-ae25-4422-9bc4-27c728e1ee3e" />
+ <img width="40" height="40" alt="Node.js" src="https://github.com/user-attachments/assets/230984c9-b807-405b-b428-58a6fe77ded2" />
 
 
 ## Made by:
