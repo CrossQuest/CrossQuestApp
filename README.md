@@ -10,7 +10,9 @@
 
 ## Made With:
 
-FrontEnd: JavaScript, HTML, style.css, Phaser, React
+FrontEnd: <img width="1200" height="1200" alt="image" src="https://github.com/user-attachments/assets/02fce08a-1f8d-4bb4-95ea-481ac0f6f3ec" />
+, <img width="640" height="640" alt="image" src="https://github.com/user-attachments/assets/1a25ac65-898b-4533-801c-e8f4253b5f1b" />
+, style.css, Phaser, React
 BackEnd: PostgresSQL, Express, Node.js
 
 ## Made by:
